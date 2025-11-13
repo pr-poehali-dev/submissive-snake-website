@@ -3,11 +3,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Slider } from "@/components/ui/slider";
 import Icon from "@/components/ui/icon";
 import { useState } from "react";
 
 const Index = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [monthlyMinutes, setMonthlyMinutes] = useState(240);
+  const [recommendation, setRecommendation] = useState('');
 
   const features = [
     {
@@ -113,6 +116,59 @@ const Index = () => {
     }
   ];
 
+  const calculateRecommendation = (minutes: number) => {
+    if (minutes <= 240) {
+      return {
+        plan: "Базовый месячный",
+        price: "300 ₽/мес",
+        reason: "Оптимальный выбор для вашего использования"
+      };
+    } else if (minutes <= 900) {
+      return {
+        plan: "Премиум месячный",
+        price: "900 ₽/мес",
+        reason: "Лучший баланс цены и возможностей"
+      };
+    } else if (minutes <= 2880) {
+      const monthlyPrice = 900;
+      const yearlyPrice = 7490 / 12;
+      if (yearlyPrice < monthlyPrice) {
+        return {
+          plan: "Премиум годовой",
+          price: "7 490 ₽/год (экономия 3 310 ₽)",
+          reason: "Годовая подписка выгоднее на 30%"
+        };
+      }
+    }
+    
+    const totalMinutes = minutes * 12;
+    const creditOption5k = totalMinutes <= 5000 ? { name: "Старт", price: 4000, minutes: 5000 } : null;
+    const creditOption10k = totalMinutes <= 10000 ? { name: "Средний", price: 7000, minutes: 10000 } : null;
+    const creditOption20k = totalMinutes <= 20000 ? { name: "Большой", price: 12000, minutes: 20000 } : null;
+    
+    const bestCredit = creditOption5k || creditOption10k || creditOption20k;
+    
+    if (bestCredit) {
+      const pricePerMonth = bestCredit.price / 12;
+      return {
+        plan: `Кредиты ${bestCredit.name}`,
+        price: `${bestCredit.price.toLocaleString()} ₽ (~${Math.round(pricePerMonth)} ₽/мес)`,
+        reason: "Кредиты выгоднее при высоком использовании"
+      };
+    }
+    
+    return {
+      plan: "Кредиты Большой",
+      price: "12 000 ₽ за 20 000 минут",
+      reason: "Максимальная выгода для интенсивного использования"
+    };
+  };
+
+  const handleCalculate = () => {
+    const result = calculateRecommendation(monthlyMinutes);
+    setRecommendation(`Рекомендуем: ${result.plan} (${result.price}). ${result.reason}`);
+  };
+
   const businessBenefits = [
     {
       icon: "TrendingUp",
@@ -215,6 +271,79 @@ const Index = () => {
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold gradient-text">Тарифы</h2>
             <p className="text-xl text-muted-foreground">🎉 Выберите удобный формат — подписка или кредиты</p>
+          </div>
+
+          <div className="max-w-2xl mx-auto mb-16">
+            <Card className="glass glow border-primary/50">
+              <CardHeader>
+                <CardTitle className="text-2xl gradient-text flex items-center gap-2">
+                  <Icon name="Calculator" size={28} />
+                  Калькулятор тарифов
+                </CardTitle>
+                <CardDescription>
+                  Подберите оптимальный план для ваших задач
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="space-y-4">
+                  <label className="text-lg font-medium">
+                    Сколько минут видео/аудио обрабатываете в месяц?
+                  </label>
+                  <div className="flex items-center gap-4">
+                    <Input 
+                      type="number"
+                      min="0"
+                      value={monthlyMinutes}
+                      onChange={(e) => setMonthlyMinutes(Number(e.target.value))}
+                      className="glass text-lg"
+                    />
+                    <span className="text-muted-foreground whitespace-nowrap">минут</span>
+                  </div>
+                  <Slider 
+                    min={0}
+                    max={5000}
+                    step={100}
+                    value={[monthlyMinutes]}
+                    onValueChange={(value) => setMonthlyMinutes(value[0])}
+                    className="w-full"
+                  />
+                  <div className="flex justify-between text-sm text-muted-foreground">
+                    <span>0</span>
+                    <span>1000</span>
+                    <span>2500</span>
+                    <span>5000+</span>
+                  </div>
+                </div>
+                
+                <Button 
+                  onClick={handleCalculate} 
+                  className="w-full glow" 
+                  size="lg"
+                >
+                  <Icon name="Sparkles" size={20} className="mr-2" />
+                  Подобрать тариф
+                </Button>
+
+                {recommendation && (
+                  <div className="p-4 rounded-lg glass border-2 border-primary animate-fade-in">
+                    <div className="flex items-start gap-3">
+                      <Icon name="Lightbulb" className="text-primary flex-shrink-0 mt-1" size={24} />
+                      <div>
+                        <p className="font-semibold text-lg mb-1">Наша рекомендация:</p>
+                        <p className="text-foreground">{recommendation}</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                <div className="p-4 rounded-lg bg-primary/10 border border-primary/30">
+                  <p className="text-sm text-center">
+                    <Icon name="Info" size={16} className="inline mr-1" />
+                    Для субтитров расход минут в 2 раза меньше
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
           </div>
 
           <div className="mb-16">
