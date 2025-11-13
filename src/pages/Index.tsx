@@ -32,27 +32,84 @@ const Index = () => {
     }
   ];
 
-  const plans = [
+  const subscriptions = [
     {
       name: "Бесплатно",
       price: "0",
       period: "навсегда",
       features: ["Голосовые до 5 мин", "Кружочки в группах", "Базовое summary", "Расшифровка аудио"],
-      popular: false
+      popular: false,
+      badge: "🎁"
     },
     {
-      name: "Стандарт",
-      price: "490",
+      name: "Базовый",
+      price: "300",
       period: "мес",
-      features: ["Видео до 2 часов", "Подкасты любой длины", "Детальные тезисы", "Таймкоды", "Субтитры"],
-      popular: true
+      minutes: "240 мин/мес",
+      features: ["240 минут в месяц", "Файлов без ограничений", "Все форматы аудио/видео", "Конспекты и тезисы"],
+      popular: false,
+      badge: "📄"
     },
     {
-      name: "Профи",
-      price: "1490",
+      name: "Премиум",
+      price: "900",
       period: "мес",
-      features: ["Безлимитная длина", "Приоритетная обработка", "Экспорт в форматы", "API доступ", "Пакетная обработка", "Поддержка 24/7"],
-      popular: false
+      minutes: "900 мин/мес",
+      features: ["900 минут в месяц", "Файлов без ограничений", "Приоритетная обработка", "Таймкоды и субтитры", "Экспорт результатов"],
+      popular: true,
+      badge: "⭐️"
+    }
+  ];
+
+  const yearlyPlans = [
+    {
+      name: "Базовый годовой",
+      price: "2 990",
+      period: "год",
+      oldPrice: "3 600",
+      savings: "610",
+      minutes: "240 мин/мес",
+      features: ["240 минут каждый месяц", "Скидка 30%", "Все возможности месячного плана"],
+      popular: false,
+      badge: "📄"
+    },
+    {
+      name: "Премиум годовой",
+      price: "7 490",
+      period: "год",
+      oldPrice: "10 800",
+      savings: "3 310",
+      minutes: "900 мин/мес",
+      features: ["900 минут каждый месяц", "Скидка 30%", "Все возможности месячного плана"],
+      popular: true,
+      badge: "⭐️"
+    }
+  ];
+
+  const credits = [
+    {
+      name: "Старт",
+      price: "4 000",
+      minutes: "5 000 мин",
+      features: ["5 000 минут", "Без срока действия", "Без лимита по файлам", "Гибкое использование"],
+      popular: false,
+      badge: "🚀"
+    },
+    {
+      name: "Средний",
+      price: "7 000",
+      minutes: "10 000 мин",
+      features: ["10 000 минут", "Без срока действия", "Без лимита по файлам", "Выгоднее на 30%"],
+      popular: true,
+      badge: "⚡️"
+    },
+    {
+      name: "Большой",
+      price: "12 000",
+      minutes: "20 000 мин",
+      features: ["20 000 минут", "Без срока действия", "Без лимита по файлам", "Максимальная выгода"],
+      popular: false,
+      badge: "🦾"
     }
   ];
 
@@ -157,43 +214,158 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold gradient-text">Тарифы</h2>
-            <p className="text-xl text-muted-foreground">Начните бесплатно и выберите подходящий план</p>
+            <p className="text-xl text-muted-foreground">🎉 Выберите удобный формат — подписка или кредиты</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {plans.map((plan, index) => (
-              <Card 
-                key={index} 
-                className={`glass relative overflow-hidden ${plan.popular ? 'ring-2 ring-primary glow scale-105' : ''}`}
-              >
-                {plan.popular && (
-                  <div className="absolute top-4 right-4">
-                    <Badge className="bg-accent">Популярный</Badge>
-                  </div>
-                )}
-                <CardHeader>
-                  <CardTitle className="text-2xl">{plan.name}</CardTitle>
-                  <CardDescription>
-                    <div className="mt-4 mb-6">
-                      <span className="text-5xl font-bold gradient-text">{plan.price}</span>
-                      <span className="text-muted-foreground ml-2">₽/{plan.period}</span>
+
+          <div className="mb-16">
+            <h3 className="text-2xl font-bold text-center mb-8 gradient-text">📅 Месячные подписки</h3>
+            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {subscriptions.map((plan, index) => (
+                <Card 
+                  key={index} 
+                  className={`glass relative overflow-hidden ${plan.popular ? 'ring-2 ring-primary glow scale-105' : ''}`}
+                >
+                  {plan.popular && (
+                    <div className="absolute top-4 right-4">
+                      <Badge className="bg-accent">Популярный</Badge>
                     </div>
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <ul className="space-y-3">
-                    {plan.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center gap-2">
-                        <Icon name="Check" size={18} className="text-primary flex-shrink-0" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button className="w-full mt-6" variant={plan.popular ? "default" : "outline"}>
-                    Выбрать план
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+                  )}
+                  <CardHeader>
+                    <div className="text-3xl mb-2">{plan.badge}</div>
+                    <CardTitle className="text-2xl">{plan.name}</CardTitle>
+                    <CardDescription>
+                      <div className="mt-4 mb-2">
+                        <span className="text-5xl font-bold gradient-text">{plan.price}</span>
+                        <span className="text-muted-foreground ml-2">₽/{plan.period}</span>
+                      </div>
+                      {plan.minutes && (
+                        <p className="text-primary font-semibold">{plan.minutes}</p>
+                      )}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <ul className="space-y-3">
+                      {plan.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-primary flex-shrink-0" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Button className="w-full mt-6" variant={plan.popular ? "default" : "outline"}>
+                      Выбрать план
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          <div className="mb-16">
+            <h3 className="text-2xl font-bold text-center mb-4 gradient-text">✨ Годовые подписки</h3>
+            <p className="text-center text-muted-foreground mb-8">Со скидкой до 30%</p>
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {yearlyPlans.map((plan, index) => (
+                <Card 
+                  key={index} 
+                  className={`glass relative overflow-hidden ${plan.popular ? 'ring-2 ring-accent glow' : ''}`}
+                >
+                  {plan.popular && (
+                    <div className="absolute top-4 right-4">
+                      <Badge className="bg-accent">Выгодно!</Badge>
+                    </div>
+                  )}
+                  <CardHeader>
+                    <div className="text-3xl mb-2">{plan.badge}</div>
+                    <CardTitle className="text-2xl">{plan.name}</CardTitle>
+                    <CardDescription>
+                      <div className="mt-4 mb-2">
+                        <div className="flex items-center gap-3">
+                          <span className="text-4xl font-bold gradient-text">{plan.price}</span>
+                          <span className="text-xl text-muted-foreground line-through">{plan.oldPrice}</span>
+                        </div>
+                        <p className="text-accent font-semibold mt-2">Экономия {plan.savings} ₽</p>
+                        <p className="text-primary text-sm mt-1">{plan.minutes}</p>
+                      </div>
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <ul className="space-y-3">
+                      {plan.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-primary flex-shrink-0" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Button className="w-full mt-6" variant={plan.popular ? "default" : "outline"}>
+                      Купить годовую подписку
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-2xl font-bold text-center mb-4 gradient-text">💳 Кредиты</h3>
+            <p className="text-center text-muted-foreground mb-8">Без лимита по файлам и времени</p>
+            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {credits.map((plan, index) => (
+                <Card 
+                  key={index} 
+                  className={`glass relative overflow-hidden ${plan.popular ? 'ring-2 ring-secondary glow scale-105' : ''}`}
+                >
+                  {plan.popular && (
+                    <div className="absolute top-4 right-4">
+                      <Badge className="bg-secondary">Выгодно</Badge>
+                    </div>
+                  )}
+                  <CardHeader>
+                    <div className="text-3xl mb-2">{plan.badge}</div>
+                    <CardTitle className="text-2xl">{plan.name}</CardTitle>
+                    <CardDescription>
+                      <div className="mt-4 mb-2">
+                        <span className="text-5xl font-bold gradient-text">{plan.price}</span>
+                        <span className="text-muted-foreground ml-2">₽</span>
+                      </div>
+                      <p className="text-secondary font-semibold">{plan.minutes}</p>
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <ul className="space-y-3">
+                      {plan.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-primary flex-shrink-0" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Button className="w-full mt-6" variant={plan.popular ? "default" : "outline"}>
+                      Купить кредиты
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-12 max-w-3xl mx-auto">
+            <Card className="glass border-primary/50">
+              <CardHeader>
+                <CardTitle className="text-xl">💡 Полезно знать</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <p className="flex items-start gap-2">
+                  <Icon name="Info" size={18} className="text-primary flex-shrink-0 mt-1" />
+                  <span>Создание субтитров расходует в 2 раза меньше минут (часовое видео ≈ 30 мин)</span>
+                </p>
+                <p className="flex items-start gap-2">
+                  <Icon name="RefreshCw" size={18} className="text-primary flex-shrink-0 mt-1" />
+                  <span>Подписка продлевается автоматически — отключить можно в разделе информации о подписке</span>
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
