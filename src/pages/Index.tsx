@@ -204,7 +204,9 @@ const Index = () => {
             <a href="#business" className="hover:text-primary transition-colors">Для бизнеса</a>
             <a href="#contact" className="hover:text-primary transition-colors">Контакты</a>
           </div>
-          <Button className="glow">Начать</Button>
+          <Button className="glow" asChild>
+            <a href="https://t.me/sp_call_summary_bot" target="_blank" rel="noopener noreferrer">Начать</a>
+          </Button>
         </div>
       </nav>
 
@@ -221,9 +223,11 @@ const Index = () => {
                 Я — Саммари. Делаю короткие выжимки из видео и подкастов: конспекты, тезисы, таймкоды и субтитры
               </p>
               <div className="flex gap-4">
-                <Button size="lg" className="glow">
-                  <Icon name="Send" size={20} className="mr-2" />
-                  Попробовать бесплатно
+                <Button size="lg" className="glow" asChild>
+                  <a href="https://t.me/sp_call_summary_bot" target="_blank" rel="noopener noreferrer">
+                    <Icon name="Send" size={20} className="mr-2" />
+                    Попробовать бесплатно
+                  </a>
                 </Button>
                 <Button size="lg" variant="outline" className="glass">
                   Как это работает?
@@ -381,8 +385,10 @@ const Index = () => {
                         </li>
                       ))}
                     </ul>
-                    <Button className="w-full mt-6" variant={plan.popular ? "default" : "outline"}>
-                      Выбрать план
+                    <Button className="w-full mt-6" variant={plan.popular ? "default" : "outline"} asChild>
+                      <a href="https://t.me/sp_call_summary_bot" target="_blank" rel="noopener noreferrer">
+                        Выбрать план
+                      </a>
                     </Button>
                   </CardContent>
                 </Card>
@@ -427,8 +433,10 @@ const Index = () => {
                         </li>
                       ))}
                     </ul>
-                    <Button className="w-full mt-6" variant={plan.popular ? "default" : "outline"}>
-                      Купить годовую подписку
+                    <Button className="w-full mt-6" variant={plan.popular ? "default" : "outline"} asChild>
+                      <a href="https://t.me/sp_call_summary_bot" target="_blank" rel="noopener noreferrer">
+                        Купить годовую подписку
+                      </a>
                     </Button>
                   </CardContent>
                 </Card>
@@ -470,8 +478,10 @@ const Index = () => {
                         </li>
                       ))}
                     </ul>
-                    <Button className="w-full mt-6" variant={plan.popular ? "default" : "outline"}>
-                      Купить кредиты
+                    <Button className="w-full mt-6" variant={plan.popular ? "default" : "outline"} asChild>
+                      <a href="https://t.me/sp_call_summary_bot" target="_blank" rel="noopener noreferrer">
+                        Купить кредиты
+                      </a>
                     </Button>
                   </CardContent>
                 </Card>
