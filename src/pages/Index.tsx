@@ -270,7 +270,105 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="pricing" className="py-20 px-4 bg-gradient-to-b from-transparent to-primary/5">
+      <section className="py-20 px-4 bg-gradient-to-b from-transparent to-primary/5">
+        <div className="container mx-auto">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-4xl md:text-5xl font-bold gradient-text">Пример результата</h2>
+            <p className="text-xl text-muted-foreground">Как выглядит итоговая обработка</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <Card className="glass">
+              <CardHeader>
+                <CardTitle className="text-2xl flex items-center gap-2">
+                  <Icon name="FileText" size={24} className="text-primary" />
+                  Расшифровка (фрагмент)
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3 text-sm font-mono bg-muted/30 p-4 rounded-lg">
+                  <p>[00:01:22] Игорь: «По скидке не идём.</p>
+                  <p className="text-muted-foreground">Бюджет... до 150?»</p>
+                  <p>[00:01:29] Анна: «Уложусь в 140,</p>
+                  <p className="text-muted-foreground">но без наружки. Запуск в понедельник, 4-го.»</p>
+                  <p>[00:01:40] Олег: «Медиаплан: черновик сегодня,</p>
+                  <p className="text-muted-foreground">финал до 02.11.»</p>
+                  <p>[00:01:48] Анна: «Аналитика на мне — UTM, цели.»</p>
+                  <p>[00:02:10] Игорь: «Следующий созвон — вт 11:00.»</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="glass">
+              <CardHeader>
+                <CardTitle className="text-2xl flex items-center gap-2">
+                  <Icon name="List" size={24} className="text-secondary" />
+                  Обсуждённые поинты
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="space-y-3">
+                  <h4 className="font-semibold text-muted-foreground">Обсуждённые поинты</h4>
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>Каналы и медиаплан (без наружки)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>Рамка бюджета</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>Тайминг и дедлайны</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="space-y-3">
+                  <h4 className="font-semibold text-secondary">Принятые решения</h4>
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-2">
+                      <Icon name="CheckCircle2" size={18} className="text-accent mt-0.5 flex-shrink-0" />
+                      <span>Бюджет 140 000 ₽</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Icon name="CheckCircle2" size={18} className="text-accent mt-0.5 flex-shrink-0" />
+                      <span>Запуск 04.11</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Icon name="CheckCircle2" size={18} className="text-accent mt-0.5 flex-shrink-0" />
+                      <span>Медиаплан финал 02.11</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Icon name="CheckCircle2" size={18} className="text-accent mt-0.5 flex-shrink-0" />
+                      <span>Аналитика — Анна</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Icon name="CheckCircle2" size={18} className="text-accent mt-0.5 flex-shrink-0" />
+                      <span>Созвон вт 11:00</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <Card className="bg-primary/10 border-primary/30">
+                  <CardContent className="pt-4">
+                    <div className="flex gap-2">
+                      <Icon name="AlertTriangle" size={20} className="text-primary flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="font-semibold text-primary">Важно:</p>
+                        <p className="text-sm text-muted-foreground">Саммари ничего не выдумывает — фиксирует только произнесённое.</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" className="py-20 px-4 bg-gradient-to-b from-primary/5 to-transparent">
         <div className="container mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold gradient-text">Тарифы</h2>
