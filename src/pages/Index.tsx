@@ -11,47 +11,47 @@ const Index = () => {
 
   const features = [
     {
-      icon: "Zap",
-      title: "Молниеносная скорость",
-      description: "Обработка запросов в режиме реального времени"
+      icon: "FileText",
+      title: "Конспекты",
+      description: "Автоматические выжимки из аудио и видео"
     },
     {
-      icon: "Shield",
-      title: "Безопасность",
-      description: "Шифрование данных по стандартам банков"
+      icon: "List",
+      title: "Тезисы",
+      description: "Структурированные ключевые мысли"
     },
     {
-      icon: "Sparkles",
-      title: "ИИ-автоматизация",
-      description: "Умные алгоритмы для оптимизации процессов"
+      icon: "Clock",
+      title: "Таймкоды",
+      description: "Ссылки на важные моменты в записи"
     },
     {
-      icon: "Users",
-      title: "Масштабируемость",
-      description: "От стартапа до корпорации"
+      icon: "Subtitles",
+      title: "Субтитры",
+      description: "Полная расшифровка для видео"
     }
   ];
 
   const plans = [
     {
-      name: "Старт",
-      price: "990",
-      period: "мес",
-      features: ["До 1000 запросов", "Базовая поддержка", "API доступ", "Аналитика"],
+      name: "Бесплатно",
+      price: "0",
+      period: "навсегда",
+      features: ["Голосовые до 5 мин", "Кружочки в группах", "Базовое summary", "Расшифровка аудио"],
       popular: false
     },
     {
-      name: "Про",
-      price: "2990",
+      name: "Стандарт",
+      price: "490",
       period: "мес",
-      features: ["До 10000 запросов", "Приоритетная поддержка", "API доступ", "Расширенная аналитика", "Интеграции"],
+      features: ["Видео до 2 часов", "Подкасты любой длины", "Детальные тезисы", "Таймкоды", "Субтитры"],
       popular: true
     },
     {
-      name: "Бизнес",
-      price: "9990",
+      name: "Профи",
+      price: "1490",
       period: "мес",
-      features: ["Безлимитные запросы", "VIP поддержка 24/7", "API доступ", "Кастомная аналитика", "Все интеграции", "Персональный менеджер"],
+      features: ["Безлимитная длина", "Приоритетная обработка", "Экспорт в форматы", "API доступ", "Пакетная обработка", "Поддержка 24/7"],
       popular: false
     }
   ];
@@ -59,18 +59,18 @@ const Index = () => {
   const businessBenefits = [
     {
       icon: "TrendingUp",
-      title: "Рост продаж на 40%",
-      description: "Автоматизация продаж через Telegram"
+      title: "Экономия времени",
+      description: "Не нужно слушать часовые записи совещаний"
     },
     {
-      icon: "Clock",
-      title: "Экономия 20 часов в неделю",
-      description: "Роботизация рутинных задач"
+      icon: "BookOpen",
+      title: "Обучение и развитие",
+      description: "Быстрое изучение лекций и вебинаров"
     },
     {
-      icon: "Target",
-      title: "Точность 95%+",
-      description: "ИИ-анализ клиентских запросов"
+      icon: "Briefcase",
+      title: "Для команд",
+      description: "Конспекты встреч и интервью всегда под рукой"
     }
   ];
 
@@ -83,7 +83,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <nav className="fixed top-0 w-full z-50 glass border-b border-border">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="text-2xl font-bold gradient-text">TechBot</div>
+          <div className="text-2xl font-bold gradient-text">Саммари</div>
           <div className="hidden md:flex gap-6">
             <a href="#home" className="hover:text-primary transition-colors">Главная</a>
             <a href="#features" className="hover:text-primary transition-colors">Возможности</a>
@@ -100,20 +100,20 @@ const Index = () => {
         <div className="container mx-auto relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 animate-fade-in">
-              <Badge className="bg-primary/20 text-primary border-primary">Инновационная технология</Badge>
+              <Badge className="bg-primary/20 text-primary border-primary">🎁 Бесплатно до 5 минут</Badge>
               <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-                <span className="gradient-text">Будущее бизнеса</span> начинается здесь
+                <span className="gradient-text">Превращаем аудио</span> в умный конспект
               </h1>
               <p className="text-xl text-muted-foreground">
-                Мощный Telegram-бот для автоматизации бизнес-процессов с использованием ИИ
+                Я — Саммари. Делаю короткие выжимки из видео и подкастов: конспекты, тезисы, таймкоды и субтитры
               </p>
               <div className="flex gap-4">
                 <Button size="lg" className="glow">
                   <Icon name="Send" size={20} className="mr-2" />
-                  Открыть в Telegram
+                  Попробовать бесплатно
                 </Button>
                 <Button size="lg" variant="outline" className="glass">
-                  Демо
+                  Как это работает?
                 </Button>
               </div>
             </div>
@@ -133,7 +133,7 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold gradient-text">Возможности</h2>
-            <p className="text-xl text-muted-foreground">Технологии, которые работают на вас</p>
+            <p className="text-xl text-muted-foreground">Всё, что нужно для работы с аудио и видео</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
@@ -157,7 +157,7 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold gradient-text">Тарифы</h2>
-            <p className="text-xl text-muted-foreground">Выберите оптимальный план для вашего бизнеса</p>
+            <p className="text-xl text-muted-foreground">Начните бесплатно и выберите подходящий план</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {plans.map((plan, index) => (
@@ -211,9 +211,9 @@ const Index = () => {
             </div>
             <div className="space-y-8">
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">Для бизнеса</h2>
+                <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">Для кого?</h2>
                 <p className="text-xl text-muted-foreground">
-                  Трансформируйте свой бизнес с помощью ИИ-автоматизации
+                  Саммари помогает всем, кто работает с аудио и видео контентом
                 </p>
               </div>
               <div className="space-y-6">
@@ -230,7 +230,8 @@ const Index = () => {
                 ))}
               </div>
               <Button size="lg" className="glow">
-                Получить консультацию
+                <Icon name="Send" size={20} className="mr-2" />
+                Начать использовать
               </Button>
             </div>
           </div>
@@ -287,7 +288,7 @@ const Index = () => {
 
       <footer className="py-8 px-4 border-t border-border">
         <div className="container mx-auto text-center text-muted-foreground">
-          <p>© 2024 TechBot. Все права защищены.</p>
+          <p>© 2024 Саммари. Все права защищены.</p>
         </div>
       </footer>
     </div>
