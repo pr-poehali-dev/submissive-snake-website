@@ -607,42 +607,71 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="business" className="py-20 px-4">
+      <section id="business" className="py-20 px-4 bg-gradient-to-b from-transparent to-secondary/5">
         <div className="container mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative">
-              <div className="absolute inset-0 bg-secondary/20 blur-3xl rounded-full"></div>
-              <img 
-                src="https://cdn.poehali.dev/projects/d512dd05-5e81-4cad-b9ff-2cc5ed47cd59/files/9e590588-2330-4a62-a35a-49e944c98c56.jpg" 
-                alt="Business Analytics" 
-                className="relative rounded-2xl glow"
-              />
-            </div>
-            <div className="space-y-8">
-              <div>
-                <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">Для кого?</h2>
-                <p className="text-xl text-muted-foreground">
-                  Саммари помогает всем, кто работает с аудио и видео контентом
-                </p>
-              </div>
-              <div className="space-y-6">
-                {businessBenefits.map((benefit, index) => (
-                  <div key={index} className="flex gap-4 items-start">
-                    <div className="w-12 h-12 rounded-lg bg-secondary/20 flex items-center justify-center flex-shrink-0">
-                      <Icon name={benefit.icon as any} className="text-secondary" size={24} />
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-4xl md:text-5xl font-bold gradient-text">Тариф для бизнеса</h2>
+            <p className="text-xl text-muted-foreground">Полный доступ для всей команды</p>
+          </div>
+
+          <div className="max-w-5xl mx-auto">
+            <Card className="glass glow border-secondary/50">
+              <CardContent className="p-8 md:p-12">
+                <div className="grid md:grid-cols-2 gap-8 mb-8">
+                  <div className="text-center space-y-3">
+                    <div className="text-6xl md:text-7xl font-bold gradient-text">600</div>
+                    <p className="text-xl font-semibold">Часов в месяц</p>
+                    <p className="text-muted-foreground">Достаточно для обработки всех встреч команды</p>
+                  </div>
+                  <div className="text-center space-y-3">
+                    <div className="text-6xl md:text-7xl font-bold gradient-text">18000</div>
+                    <p className="text-xl font-semibold">Рублей в месяц</p>
+                    <p className="text-muted-foreground">Или 180 000 ₽/год (те же 600 ч/мес)</p>
+                  </div>
+                </div>
+
+                <div className="space-y-6 mb-8">
+                  <h3 className="text-2xl font-bold">Что входит</h3>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="flex items-start gap-3">
+                      <Icon name="Users" size={20} className="text-secondary flex-shrink-0 mt-1" />
+                      <div>
+                        <p className="font-semibold">Пользователи и чаты:</p>
+                        <p className="text-muted-foreground">без ограничений</p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-semibold mb-1">{benefit.title}</h3>
-                      <p className="text-muted-foreground">{benefit.description}</p>
+                    <div className="flex items-start gap-3">
+                      <Icon name="FileCheck" size={20} className="text-secondary flex-shrink-0 mt-1" />
+                      <div>
+                        <p className="font-semibold">Тарификация:</p>
+                        <p className="text-muted-foreground">за итоги встреч</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Icon name="Gift" size={20} className="text-secondary flex-shrink-0 mt-1" />
+                      <div>
+                        <p className="font-semibold">Расшифровки:</p>
+                        <p className="text-muted-foreground">в подарок</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Icon name="Building2" size={20} className="text-secondary flex-shrink-0 mt-1" />
+                      <div>
+                        <p className="font-semibold">Биллинг:</p>
+                        <p className="text-muted-foreground">один админ-аккаунт на компанию</p>
+                      </div>
                     </div>
                   </div>
-                ))}
-              </div>
-              <Button size="lg" className="glow">
-                <Icon name="Send" size={20} className="mr-2" />
-                Начать использовать
-              </Button>
-            </div>
+                </div>
+
+                <Button size="lg" className="w-full glow" asChild>
+                  <a href="https://t.me/sp_call_summary_bot" target="_blank" rel="noopener noreferrer">
+                    <Icon name="Send" size={20} className="mr-2" />
+                    Подключить для бизнеса
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
