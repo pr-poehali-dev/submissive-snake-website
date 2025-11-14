@@ -199,8 +199,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <nav className={`fixed top-0 w-full z-50 glass border-b border-border transition-transform duration-300 ${navHidden ? '-translate-y-full' : 'translate-y-0'}`}>
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="text-2xl font-bold gradient-text">Саммари</div>
+        <div className="container mx-auto px-4 py-3 md:py-4 flex items-center justify-between">
+          <div className="text-xl md:text-2xl font-bold gradient-text">Саммари</div>
           <div className="hidden md:flex gap-6">
             <a href="#home" className="hover:text-primary transition-colors">Главная</a>
             <a href="#features" className="hover:text-primary transition-colors">Возможности</a>
@@ -208,21 +208,21 @@ const Index = () => {
             <a href="#business" className="hover:text-primary transition-colors">Для бизнеса</a>
             <a href="#contact" className="hover:text-primary transition-colors">Контакты</a>
           </div>
-          <Button className="glow" asChild>
+          <Button className="glow" size="sm" asChild>
             <a href="https://t.me/sp_call_summary_bot" target="_blank" rel="noopener noreferrer">Начать</a>
           </Button>
         </div>
       </nav>
 
-      <section id="home" className="pt-32 pb-20 px-4 relative overflow-hidden">
+      <section id="home" className="pt-24 md:pt-32 pb-12 md:pb-20 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 animate-glow-pulse"></div>
         <div className="container mx-auto relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 animate-fade-in">
-              <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="space-y-4 md:space-y-6 animate-fade-in">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-tight">
                 <span className="gradient-text">Превращаем аудио</span> в умный конспект
               </h1>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-base md:text-xl text-muted-foreground">
                 Я — Саммари. Делаю короткие выжимки из видео и подкастов: конспекты, тезисы, таймкоды и субтитры
               </p>
               <Button size="lg" className="glow" asChild>
@@ -244,13 +244,13 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="features" className="py-20 px-4 bg-gradient-to-b from-transparent to-primary/5">
+      <section id="features" className="py-12 md:py-20 px-4 bg-gradient-to-b from-transparent to-primary/5">
         <div className="container mx-auto">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold gradient-text">Возможности</h2>
-            <p className="text-xl text-muted-foreground">Все для эффективной работы с аудио и видео</p>
+          <div className="text-center mb-8 md:mb-16 space-y-2 md:space-y-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold gradient-text">Возможности</h2>
+            <p className="text-base md:text-xl text-muted-foreground">Все для эффективной работы с аудио и видео</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
             {features.map((feature, index) => (
               <Card key={index} className="glass hover-lift">
                 <CardHeader>
@@ -266,13 +266,13 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="benefits" className="py-20 px-4">
+      <section id="benefits" className="py-12 md:py-20 px-4">
         <div className="container mx-auto">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold gradient-text">Для кого это полезно</h2>
-            <p className="text-xl text-muted-foreground">Решения для разных задач</p>
+          <div className="text-center mb-8 md:mb-16 space-y-2 md:space-y-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold gradient-text">Для кого это полезно</h2>
+            <p className="text-base md:text-xl text-muted-foreground">Решения для разных задач</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-5xl mx-auto">
             {businessBenefits.map((benefit, index) => (
               <Card key={index} className="glass hover-lift text-center">
                 <CardHeader>
@@ -288,24 +288,24 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="pricing" className="py-20 px-4 bg-gradient-to-b from-transparent to-secondary/5">
+      <section id="pricing" className="py-12 md:py-20 px-4 bg-gradient-to-b from-transparent to-secondary/5">
         <div className="container mx-auto">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold gradient-text">Тарифы</h2>
-            <p className="text-xl text-muted-foreground">Выберите подходящий план</p>
+          <div className="text-center mb-8 md:mb-16 space-y-2 md:space-y-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold gradient-text">Тарифы</h2>
+            <p className="text-base md:text-xl text-muted-foreground">Выберите подходящий план</p>
           </div>
 
-          <div className="max-w-2xl mx-auto mb-16">
+          <div className="max-w-2xl mx-auto mb-8 md:mb-16">
             <Card className="glass glow">
               <CardHeader>
-                <CardTitle className="text-center text-2xl">🧮 Калькулятор тарифов</CardTitle>
-                <CardDescription className="text-center">Узнайте, какой тариф вам подходит</CardDescription>
+                <CardTitle className="text-center text-lg sm:text-xl md:text-2xl">🧮 Калькулятор тарифов</CardTitle>
+                <CardDescription className="text-center text-sm md:text-base">Узнайте, какой тариф вам подходит</CardDescription>
               </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="space-y-4">
+              <CardContent className="space-y-4 md:space-y-6">
+                <div className="space-y-3 md:space-y-4">
                   <div className="flex justify-between items-center">
-                    <label className="text-lg font-medium">Минут в месяц:</label>
-                    <span className="text-3xl font-bold gradient-text">{monthlyMinutes}</span>
+                    <label className="text-base md:text-lg font-medium">Минут в месяц:</label>
+                    <span className="text-2xl md:text-3xl font-bold gradient-text">{monthlyMinutes}</span>
                   </div>
                   <Slider
                     value={[monthlyMinutes]}
@@ -352,9 +352,9 @@ const Index = () => {
             </Card>
           </div>
 
-          <div className="mb-16">
-            <h3 className="text-2xl font-bold text-center mb-8 gradient-text">📅 Помесячные подписки</h3>
-            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="mb-8 md:mb-16">
+            <h3 className="text-xl sm:text-2xl font-bold text-center mb-6 md:mb-8 gradient-text">📅 Помесячные подписки</h3>
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto">
               {subscriptions.map((plan, index) => (
                 <Card 
                   key={index} 
@@ -366,12 +366,12 @@ const Index = () => {
                     </div>
                   )}
                   <CardHeader>
-                    <div className="text-3xl mb-2">{plan.badge}</div>
-                    <CardTitle className="text-2xl">{plan.name}</CardTitle>
+                    <div className="text-2xl md:text-3xl mb-2">{plan.badge}</div>
+                    <CardTitle className="text-lg md:text-2xl">{plan.name}</CardTitle>
                     <CardDescription>
-                      <div className="mt-4 mb-2">
-                        <span className="text-5xl font-bold gradient-text">{plan.price}</span>
-                        <span className="text-muted-foreground ml-2">₽/{plan.period}</span>
+                      <div className="mt-3 md:mt-4 mb-2">
+                        <span className="text-3xl md:text-5xl font-bold gradient-text">{plan.price}</span>
+                        <span className="text-muted-foreground ml-1 md:ml-2 text-sm md:text-base">₽/{plan.period}</span>
                       </div>
                       {plan.minutes && <p className="text-primary font-semibold">{plan.minutes}</p>}
                     </CardDescription>
@@ -396,10 +396,10 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="mb-16">
-            <h3 className="text-2xl font-bold text-center mb-4 gradient-text">📆 Годовые подписки</h3>
-            <p className="text-center text-accent font-semibold text-lg mb-8">Скидка 30% при оплате на год</p>
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="mb-8 md:mb-16">
+            <h3 className="text-xl sm:text-2xl font-bold text-center mb-3 md:mb-4 gradient-text">📆 Годовые подписки</h3>
+            <p className="text-center text-accent font-semibold text-base md:text-lg mb-6 md:mb-8">Скидка 30% при оплате на год</p>
+            <div className="grid md:grid-cols-2 gap-4 md:gap-8 max-w-4xl mx-auto">
               {yearlyPlans.map((plan, index) => (
                 <Card 
                   key={index} 
@@ -411,12 +411,12 @@ const Index = () => {
                     </div>
                   )}
                   <CardHeader>
-                    <div className="text-3xl mb-2">{plan.badge}</div>
-                    <CardTitle className="text-2xl">{plan.name}</CardTitle>
+                    <div className="text-2xl md:text-3xl mb-2">{plan.badge}</div>
+                    <CardTitle className="text-lg md:text-2xl">{plan.name}</CardTitle>
                     <CardDescription>
-                      <div className="mt-4 mb-2 flex items-end gap-2">
-                        <span className="text-5xl font-bold gradient-text">{plan.price}</span>
-                        <span className="text-muted-foreground line-through text-xl mb-2">{plan.oldPrice}</span>
+                      <div className="mt-3 md:mt-4 mb-2 flex items-end gap-2">
+                        <span className="text-3xl md:text-5xl font-bold gradient-text">{plan.price}</span>
+                        <span className="text-muted-foreground line-through text-lg md:text-xl mb-2">{plan.oldPrice}</span>
                         <span className="text-muted-foreground ml-auto">₽/{plan.period}</span>
                       </div>
                       <p className="text-accent font-semibold">Экономия {plan.savings} ₽</p>
@@ -444,9 +444,9 @@ const Index = () => {
           </div>
 
           <div>
-            <h3 className="text-2xl font-bold text-center mb-4 gradient-text">💳 Пакеты</h3>
-            <p className="text-center text-muted-foreground mb-8">Без лимита по файлам и времени</p>
-            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <h3 className="text-xl sm:text-2xl font-bold text-center mb-3 md:mb-4 gradient-text">💳 Пакеты</h3>
+            <p className="text-center text-muted-foreground text-sm md:text-base mb-6 md:mb-8">Без лимита по файлам и времени</p>
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto">
               {credits.map((plan, index) => (
                 <Card 
                   key={index} 
@@ -458,12 +458,12 @@ const Index = () => {
                     </div>
                   )}
                   <CardHeader>
-                    <div className="text-3xl mb-2">{plan.badge}</div>
-                    <CardTitle className="text-2xl">{plan.name}</CardTitle>
+                    <div className="text-2xl md:text-3xl mb-2">{plan.badge}</div>
+                    <CardTitle className="text-lg md:text-2xl">{plan.name}</CardTitle>
                     <CardDescription>
-                      <div className="mt-4 mb-2">
-                        <span className="text-5xl font-bold gradient-text">{plan.price}</span>
-                        <span className="text-muted-foreground ml-2">₽</span>
+                      <div className="mt-3 md:mt-4 mb-2">
+                        <span className="text-3xl md:text-5xl font-bold gradient-text">{plan.price}</span>
+                        <span className="text-muted-foreground ml-1 md:ml-2 text-sm md:text-base">₽</span>
                       </div>
                       <p className="text-secondary font-semibold">{plan.minutes}</p>
                     </CardDescription>
@@ -492,32 +492,32 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="business" className="py-20 px-4 bg-gradient-to-b from-transparent to-secondary/5">
+      <section id="business" className="py-12 md:py-20 px-4 bg-gradient-to-b from-transparent to-secondary/5">
         <div className="container mx-auto">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold gradient-text">Тариф для бизнеса</h2>
-            <p className="text-xl text-muted-foreground">Полный доступ для всей команды</p>
+          <div className="text-center mb-8 md:mb-16 space-y-2 md:space-y-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold gradient-text">Тариф для бизнеса</h2>
+            <p className="text-base md:text-xl text-muted-foreground">Полный доступ для всей команды</p>
           </div>
 
           <div className="max-w-5xl mx-auto">
             <Card className="glass glow border-secondary/50">
-              <CardContent className="p-8 md:p-12">
-                <div className="grid md:grid-cols-2 gap-8 mb-8">
-                  <div className="text-center space-y-3">
-                    <div className="text-6xl md:text-7xl font-bold gradient-text">600</div>
-                    <p className="text-xl font-semibold">Часов в месяц</p>
+              <CardContent className="p-4 md:p-8 lg:p-12">
+                <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-6 md:mb-8">
+                  <div className="text-center space-y-2 md:space-y-3">
+                    <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold gradient-text">600</div>
+                    <p className="text-base md:text-xl font-semibold">Часов в месяц</p>
                     <p className="text-muted-foreground">Достаточно для обработки всех встреч команды</p>
                   </div>
-                  <div className="text-center space-y-3">
-                    <div className="text-6xl md:text-7xl font-bold gradient-text">18000</div>
-                    <p className="text-xl font-semibold">Рублей в месяц</p>
+                  <div className="text-center space-y-2 md:space-y-3">
+                    <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold gradient-text">18000</div>
+                    <p className="text-base md:text-xl font-semibold">Рублей в месяц</p>
                     <p className="text-muted-foreground">Или 180 000 ₽/год (те же 600 ч/мес)</p>
                   </div>
                 </div>
 
-                <div className="space-y-6 mb-8">
-                  <h3 className="text-2xl font-bold">Что входит</h3>
-                  <div className="grid md:grid-cols-2 gap-4">
+                <div className="space-y-4 md:space-y-6 mb-6 md:mb-8">
+                  <h3 className="text-xl md:text-2xl font-bold">Что входит</h3>
+                  <div className="grid md:grid-cols-2 gap-3 md:gap-4">
                     <div className="flex items-start gap-3">
                       <Icon name="Users" size={20} className="text-secondary flex-shrink-0 mt-1" />
                       <div>
@@ -561,11 +561,11 @@ const Index = () => {
         </div>
       </section>
 
-      <footer className="py-12 px-4 border-t border-border bg-gradient-to-t from-transparent to-accent/5">
+      <footer className="py-8 md:py-12 px-4 border-t border-border bg-gradient-to-t from-transparent to-accent/5">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
             <div>
-              <h3 className="text-xl font-bold mb-6">Поддержка</h3>
+              <h3 className="text-lg md:text-xl font-bold mb-4 md:mb-6">Поддержка</h3>
               <ul className="space-y-3">
                 <li>
                   <a 
@@ -591,8 +591,8 @@ const Index = () => {
             </div>
 
             <div>
-              <h3 className="text-xl font-bold mb-6">Информация</h3>
-              <ul className="space-y-3 text-muted-foreground">
+              <h3 className="text-lg md:text-xl font-bold mb-4 md:mb-6">Информация</h3>
+              <ul className="space-y-2 md:space-y-3 text-muted-foreground text-sm md:text-base">
                 <li>ИП Сидоров Денис</li>
                 <li>ОГРНИП:318784700135482</li>
                 <li>ИНН:511201452344</li>
@@ -604,8 +604,8 @@ const Index = () => {
             </div>
 
             <div>
-              <h3 className="text-xl font-bold mb-6">Контакты</h3>
-              <ul className="space-y-3">
+              <h3 className="text-lg md:text-xl font-bold mb-4 md:mb-6">Контакты</h3>
+              <ul className="space-y-2 md:space-y-3 text-sm md:text-base">
                 <li>
                   <a 
                     href="https://t.me/njg_ss" 
@@ -639,7 +639,7 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="mt-12 pt-8 border-t border-border text-center text-muted-foreground">
+          <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-border text-center text-muted-foreground text-sm md:text-base">
             <p>© 2024 Саммари. Все права защищены.</p>
           </div>
         </div>
