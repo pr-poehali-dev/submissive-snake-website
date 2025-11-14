@@ -196,8 +196,6 @@ const Index = () => {
     }
   ];
 
-
-
   return (
     <div className="min-h-screen bg-background">
       <nav className={`fixed top-0 w-full z-50 glass border-b border-border transition-transform duration-300 ${navHidden ? '-translate-y-full' : 'translate-y-0'}`}>
@@ -237,186 +235,92 @@ const Index = () => {
             <div className="relative animate-float">
               <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full"></div>
               <img 
-                src="https://cdn.poehali.dev/projects/d512dd05-5e81-4cad-b9ff-2cc5ed47cd59/files/98c22647-0d9d-40e7-b8e4-5283f9e68b54.jpg" 
-                alt="Tech Dashboard" 
-                className="relative rounded-2xl glow"
+                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=600&fit=crop" 
+                alt="Audio visualization"
+                className="relative rounded-2xl shadow-2xl"
               />
             </div>
           </div>
         </div>
       </section>
 
-      <section id="features" className="py-20 px-4">
+      <section id="features" className="py-20 px-4 bg-gradient-to-b from-transparent to-primary/5">
         <div className="container mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold gradient-text">Возможности</h2>
-            <p className="text-xl text-muted-foreground">Всё, что нужно для работы с аудио и видео</p>
+            <p className="text-xl text-muted-foreground">Все для эффективной работы с аудио и видео</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="glass hover:glow transition-all duration-300 hover:-translate-y-2">
+              <Card key={index} className="glass hover-lift">
                 <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
-                    <Icon name={feature.icon as any} className="text-primary" size={24} />
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                    <Icon name={feature.icon as any} size={24} className="text-primary" />
                   </div>
-                  <CardTitle>{feature.title}</CardTitle>
+                  <CardTitle className="text-xl">{feature.title}</CardTitle>
+                  <CardDescription className="text-base">{feature.description}</CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{feature.description}</p>
-                </CardContent>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-gradient-to-b from-transparent to-primary/5">
+      <section id="benefits" className="py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16 space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold gradient-text">Пример результата</h2>
-            <p className="text-xl text-muted-foreground">Как выглядит итоговая обработка</p>
+            <h2 className="text-4xl md:text-5xl font-bold gradient-text">Для кого это полезно</h2>
+            <p className="text-xl text-muted-foreground">Решения для разных задач</p>
           </div>
-          
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <Card className="glass">
-              <CardHeader>
-                <CardTitle className="text-2xl flex items-center gap-2">
-                  <Icon name="FileText" size={24} className="text-primary" />
-                  Расшифровка (фрагмент)
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3 text-sm font-mono bg-muted/30 p-4 rounded-lg">
-                  <p>[00:01:22] Игорь: «По скидке не идём.</p>
-                  <p className="text-muted-foreground">Бюджет... до 150?»</p>
-                  <p>[00:01:29] Анна: «Уложусь в 140,</p>
-                  <p className="text-muted-foreground">но без наружки. Запуск в понедельник, 4-го.»</p>
-                  <p>[00:01:40] Олег: «Медиаплан: черновик сегодня,</p>
-                  <p className="text-muted-foreground">финал до 02.11.»</p>
-                  <p>[00:01:48] Анна: «Аналитика на мне — UTM, цели.»</p>
-                  <p>[00:02:10] Игорь: «Следующий созвон — вт 11:00.»</p>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="glass">
-              <CardHeader>
-                <CardTitle className="text-2xl flex items-center gap-2">
-                  <Icon name="List" size={24} className="text-secondary" />
-                  Обсуждённые поинты
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="space-y-3">
-                  <h4 className="font-semibold text-muted-foreground">Обсуждённые поинты</h4>
-                  <ul className="space-y-2">
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>Каналы и медиаплан (без наружки)</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>Рамка бюджета</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>Тайминг и дедлайны</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="space-y-3">
-                  <h4 className="font-semibold text-secondary">Принятые решения</h4>
-                  <ul className="space-y-2">
-                    <li className="flex items-start gap-2">
-                      <Icon name="CheckCircle2" size={18} className="text-accent mt-0.5 flex-shrink-0" />
-                      <span>Бюджет 140 000 ₽</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Icon name="CheckCircle2" size={18} className="text-accent mt-0.5 flex-shrink-0" />
-                      <span>Запуск 04.11</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Icon name="CheckCircle2" size={18} className="text-accent mt-0.5 flex-shrink-0" />
-                      <span>Медиаплан финал 02.11</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Icon name="CheckCircle2" size={18} className="text-accent mt-0.5 flex-shrink-0" />
-                      <span>Аналитика — Анна</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Icon name="CheckCircle2" size={18} className="text-accent mt-0.5 flex-shrink-0" />
-                      <span>Созвон вт 11:00</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <Card className="bg-primary/10 border-primary/30">
-                  <CardContent className="pt-4">
-                    <div className="flex gap-2">
-                      <Icon name="AlertTriangle" size={20} className="text-primary flex-shrink-0 mt-0.5" />
-                      <div>
-                        <p className="font-semibold text-primary">Важно:</p>
-                        <p className="text-sm text-muted-foreground">Саммари ничего не выдумывает — фиксирует только произнесённое.</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </CardContent>
-            </Card>
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {businessBenefits.map((benefit, index) => (
+              <Card key={index} className="glass hover-lift text-center">
+                <CardHeader>
+                  <div className="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center mx-auto mb-4">
+                    <Icon name={benefit.icon as any} size={32} className="text-secondary" />
+                  </div>
+                  <CardTitle className="text-xl mb-2">{benefit.title}</CardTitle>
+                  <CardDescription className="text-base">{benefit.description}</CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      <section id="pricing" className="py-20 px-4 bg-gradient-to-b from-primary/5 to-transparent">
+      <section id="pricing" className="py-20 px-4 bg-gradient-to-b from-transparent to-secondary/5">
         <div className="container mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold gradient-text">Тарифы</h2>
-            <p className="text-xl text-muted-foreground">🎉 Выберите удобный формат — подписка или кредиты</p>
+            <p className="text-xl text-muted-foreground">Выберите подходящий план</p>
           </div>
 
           <div className="max-w-2xl mx-auto mb-16">
-            <Card className="glass glow border-primary/50">
+            <Card className="glass glow">
               <CardHeader>
-                <CardTitle className="text-2xl gradient-text flex items-center gap-2">
-                  <Icon name="Calculator" size={28} />
-                  Калькулятор тарифов
-                </CardTitle>
-                <CardDescription>
-                  Подберите оптимальный план для ваших задач
-                </CardDescription>
+                <CardTitle className="text-center text-2xl">🧮 Калькулятор тарифов</CardTitle>
+                <CardDescription className="text-center">Узнайте, какой тариф вам подходит</CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="space-y-4">
-                  <label className="text-lg font-medium">
-                    Сколько минут видео/аудио обрабатываете в месяц?
-                  </label>
-                  <div className="flex items-center gap-4">
-                    <Input 
-                      type="number"
-                      min="0"
-                      value={monthlyMinutes}
-                      onChange={(e) => setMonthlyMinutes(Number(e.target.value))}
-                      className="glass text-lg"
-                    />
-                    <span className="text-muted-foreground whitespace-nowrap">минут</span>
+                  <div className="flex justify-between items-center">
+                    <label className="text-lg font-medium">Минут в месяц:</label>
+                    <span className="text-3xl font-bold gradient-text">{monthlyMinutes}</span>
                   </div>
-                  <Slider 
-                    min={0}
-                    max={5000}
-                    step={100}
+                  <Slider
                     value={[monthlyMinutes]}
                     onValueChange={(value) => setMonthlyMinutes(value[0])}
+                    min={60}
+                    max={5000}
+                    step={60}
                     className="w-full"
                   />
                   <div className="flex justify-between text-sm text-muted-foreground">
-                    <span>0</span>
-                    <span>1000</span>
-                    <span>2500</span>
-                    <span>5000+</span>
+                    <span>60 мин</span>
+                    <span>5000 мин</span>
                   </div>
                 </div>
-                
+
                 <Button 
                   onClick={handleCalculate} 
                   className="w-full glow" 
@@ -469,9 +373,7 @@ const Index = () => {
                         <span className="text-5xl font-bold gradient-text">{plan.price}</span>
                         <span className="text-muted-foreground ml-2">₽/{plan.period}</span>
                       </div>
-                      {plan.minutes && (
-                        <p className="text-primary font-semibold">{plan.minutes}</p>
-                      )}
+                      {plan.minutes && <p className="text-primary font-semibold">{plan.minutes}</p>}
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
@@ -485,7 +387,7 @@ const Index = () => {
                     </ul>
                     <Button className="w-full mt-6" variant={plan.popular ? "default" : "outline"} asChild>
                       <a href="https://t.me/sp_call_summary_bot" target="_blank" rel="noopener noreferrer">
-                        Выбрать план
+                        {plan.price === "0" ? "Начать" : "Оформить"}
                       </a>
                     </Button>
                   </CardContent>
@@ -495,31 +397,30 @@ const Index = () => {
           </div>
 
           <div className="mb-16">
-            <h3 className="text-2xl font-bold text-center mb-4 gradient-text">✨ Годовые подписки</h3>
-            <p className="text-center text-muted-foreground mb-8">Со скидкой до 30%</p>
+            <h3 className="text-2xl font-bold text-center mb-4 gradient-text">📆 Годовые подписки</h3>
+            <p className="text-center text-accent font-semibold text-lg mb-8">Скидка 30% при оплате на год</p>
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {yearlyPlans.map((plan, index) => (
                 <Card 
                   key={index} 
-                  className={`glass relative overflow-hidden ${plan.popular ? 'ring-2 ring-accent glow' : ''}`}
+                  className={`glass relative overflow-hidden ${plan.popular ? 'ring-2 ring-accent glow scale-105' : ''}`}
                 >
                   {plan.popular && (
                     <div className="absolute top-4 right-4">
-                      <Badge className="bg-accent">Выгодно!</Badge>
+                      <Badge className="bg-accent">Выгодно</Badge>
                     </div>
                   )}
                   <CardHeader>
                     <div className="text-3xl mb-2">{plan.badge}</div>
                     <CardTitle className="text-2xl">{plan.name}</CardTitle>
                     <CardDescription>
-                      <div className="mt-4 mb-2">
-                        <div className="flex items-center gap-3">
-                          <span className="text-4xl font-bold gradient-text">{plan.price}</span>
-                          <span className="text-xl text-muted-foreground line-through">{plan.oldPrice}</span>
-                        </div>
-                        <p className="text-accent font-semibold mt-2">Экономия {plan.savings} ₽</p>
-                        <p className="text-primary text-sm mt-1">{plan.minutes}</p>
+                      <div className="mt-4 mb-2 flex items-end gap-2">
+                        <span className="text-5xl font-bold gradient-text">{plan.price}</span>
+                        <span className="text-muted-foreground line-through text-xl mb-2">{plan.oldPrice}</span>
+                        <span className="text-muted-foreground ml-auto">₽/{plan.period}</span>
                       </div>
+                      <p className="text-accent font-semibold">Экономия {plan.savings} ₽</p>
+                      <p className="text-primary font-semibold mt-2">{plan.minutes}</p>
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
@@ -533,7 +434,7 @@ const Index = () => {
                     </ul>
                     <Button className="w-full mt-6" variant={plan.popular ? "default" : "outline"} asChild>
                       <a href="https://t.me/sp_call_summary_bot" target="_blank" rel="noopener noreferrer">
-                        Купить годовую подписку
+                        Оформить годовую
                       </a>
                     </Button>
                   </CardContent>
