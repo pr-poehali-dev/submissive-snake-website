@@ -5,12 +5,24 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Slider } from "@/components/ui/slider";
 import Icon from "@/components/ui/icon";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Index = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [monthlyMinutes, setMonthlyMinutes] = useState(240);
   const [recommendation, setRecommendation] = useState('');
+  const [navHidden, setNavHidden] = useState(false);
+
+  useEffect(() => {
+    let lastScroll = 0;
+    const handleScroll = () => {
+      const currentScroll = window.scrollY;
+      setNavHidden(currentScroll > 100 && currentScroll > lastScroll);
+      lastScroll = currentScroll;
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const features = [
     {
@@ -194,7 +206,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <nav className="fixed top-0 w-full z-50 glass border-b border-border">
+      <nav className={`fixed top-0 w-full z-50 glass border-b border-border transition-transform duration-300 ${navHidden ? '-translate-y-full' : 'translate-y-0'}`}>
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="text-2xl font-bold gradient-text">Саммари</div>
           <div className="hidden md:flex gap-6">
@@ -215,24 +227,18 @@ const Index = () => {
         <div className="container mx-auto relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 animate-fade-in">
-              <Badge className="bg-primary/20 text-primary border-primary">🎁 Бесплатно до 5 минут</Badge>
               <h1 className="text-5xl md:text-7xl font-bold leading-tight">
                 <span className="gradient-text">Превращаем аудио</span> в умный конспект
               </h1>
               <p className="text-xl text-muted-foreground">
                 Я — Саммари. Делаю короткие выжимки из видео и подкастов: конспекты, тезисы, таймкоды и субтитры
               </p>
-              <div className="flex gap-4">
-                <Button size="lg" className="glow" asChild>
-                  <a href="https://t.me/sp_call_summary_bot" target="_blank" rel="noopener noreferrer">
-                    <Icon name="Send" size={20} className="mr-2" />
-                    Попробовать бесплатно
-                  </a>
-                </Button>
-                <Button size="lg" variant="outline" className="glass">
-                  Как это работает?
-                </Button>
-              </div>
+              <Button size="lg" className="glow" asChild>
+                <a href="https://t.me/sp_call_summary_bot" target="_blank" rel="noopener noreferrer">
+                  <Icon name="Send" size={20} className="mr-2" />
+                  Попробовать бесплатно
+                </a>
+              </Button>
             </div>
             <div className="relative animate-float">
               <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full"></div>
@@ -449,7 +455,7 @@ const Index = () => {
           </div>
 
           <div className="mb-16">
-            <h3 className="text-2xl font-bold text-center mb-8 gradient-text">📅 Месячные подписки</h3>
+            <h3 className="text-2xl font-bold text-center mb-8 gradient-text">📅 Помесячные подписки</h3>
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {subscriptions.map((plan, index) => (
                 <Card 
@@ -543,7 +549,7 @@ const Index = () => {
           </div>
 
           <div>
-            <h3 className="text-2xl font-bold text-center mb-4 gradient-text">💳 Кредиты</h3>
+            <h3 className="text-2xl font-bold text-center mb-4 gradient-text">💳 Пакеты</h3>
             <p className="text-center text-muted-foreground mb-8">Без лимита по файлам и времени</p>
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {credits.map((plan, index) => (
@@ -578,7 +584,7 @@ const Index = () => {
                     </ul>
                     <Button className="w-full mt-6" variant={plan.popular ? "default" : "outline"} asChild>
                       <a href="https://t.me/sp_call_summary_bot" target="_blank" rel="noopener noreferrer">
-                        Купить кредиты
+                        Купить пакет
                       </a>
                     </Button>
                   </CardContent>
@@ -587,23 +593,7 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="mt-12 max-w-3xl mx-auto">
-            <Card className="glass border-primary/50">
-              <CardHeader>
-                <CardTitle className="text-xl">💡 Полезно знать</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <p className="flex items-start gap-2">
-                  <Icon name="Info" size={18} className="text-primary flex-shrink-0 mt-1" />
-                  <span>Создание субтитров расходует в 2 раза меньше минут (часовое видео ≈ 30 мин)</span>
-                </p>
-                <p className="flex items-start gap-2">
-                  <Icon name="RefreshCw" size={18} className="text-primary flex-shrink-0 mt-1" />
-                  <span>Подписка продлевается автоматически — отключить можно в разделе информации о подписке</span>
-                </p>
-              </CardContent>
-            </Card>
-          </div>
+
         </div>
       </section>
 
@@ -665,7 +655,7 @@ const Index = () => {
                 </div>
 
                 <Button size="lg" className="w-full glow" asChild>
-                  <a href="https://t.me/sp_call_summary_bot" target="_blank" rel="noopener noreferrer">
+                  <a href="https://t.me/Eugen_Targaryen" target="_blank" rel="noopener noreferrer">
                     <Icon name="Send" size={20} className="mr-2" />
                     Подключить для бизнеса
                   </a>
