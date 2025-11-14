@@ -1,14 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Slider } from "@/components/ui/slider";
 import Icon from "@/components/ui/icon";
 import { useState, useEffect } from "react";
 
 const Index = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [monthlyMinutes, setMonthlyMinutes] = useState(240);
   const [recommendation, setRecommendation] = useState('');
   const [navHidden, setNavHidden] = useState(false);
@@ -666,57 +663,87 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="contact" className="py-20 px-4 bg-gradient-to-t from-transparent to-accent/5">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12 space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold gradient-text">Контакты</h2>
-            <p className="text-xl text-muted-foreground">Свяжитесь с нами прямо сейчас</p>
-          </div>
-          <Card className="glass glow">
-            <CardContent className="p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">Имя</label>
-                  <Input 
-                    placeholder="Ваше имя"
-                    value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    className="glass"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">Email</label>
-                  <Input 
-                    type="email"
-                    placeholder="your@email.com"
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    className="glass"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">Сообщение</label>
-                  <Textarea 
-                    placeholder="Расскажите о вашем проекте"
-                    rows={5}
-                    value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
-                    className="glass"
-                  />
-                </div>
-                <Button type="submit" size="lg" className="w-full glow">
-                  <Icon name="Send" size={20} className="mr-2" />
-                  Отправить сообщение
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+      <footer className="py-12 px-4 border-t border-border bg-gradient-to-t from-transparent to-accent/5">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid md:grid-cols-3 gap-12">
+            <div>
+              <h3 className="text-xl font-bold mb-6">Поддержка</h3>
+              <ul className="space-y-3">
+                <li>
+                  <a 
+                    href="https://docs.google.com/document/d/10hv-1zOm6HMgudROMF5Za3hIj_p14CcYcD4beYOS7qw/edit?tab=t.0" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    Правила возврата
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://docs.google.com/document/d/1o57HHN41-zzOz4zOB0ZaiY56AQl-kLjJ362vR1QWXVQ/edit?tab=t.0" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    Оферта
+                  </a>
+                </li>
+              </ul>
+            </div>
 
-      <footer className="py-8 px-4 border-t border-border">
-        <div className="container mx-auto text-center text-muted-foreground">
-          <p>© 2024 Саммари. Все права защищены.</p>
+            <div>
+              <h3 className="text-xl font-bold mb-6">Информация</h3>
+              <ul className="space-y-3 text-muted-foreground">
+                <li>ИП Сидоров Денис</li>
+                <li>ОГРНИП:318784700135482</li>
+                <li>ИНН:511201452344</li>
+                <li className="flex items-start gap-2">
+                  <Icon name="MapPin" size={16} className="mt-1 flex-shrink-0" />
+                  <span>197375, Санкт-Петербург, Вербная12к1</span>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold mb-6">Контакты</h3>
+              <ul className="space-y-3">
+                <li>
+                  <a 
+                    href="https://t.me/njg_ss" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <Icon name="Send" size={16} />
+                    <span>@njg_ss</span>
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="mailto:ijoy14@yandex.ru"
+                    className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <Icon name="Mail" size={16} />
+                    <span>ijoy14@yandex.ru</span>
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="tel:+79995293121"
+                    className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <Icon name="Phone" size={16} />
+                    <span>+7(999) 529-31-21</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-12 pt-8 border-t border-border text-center text-muted-foreground">
+            <p>© 2024 Саммари. Все права защищены.</p>
+          </div>
         </div>
       </footer>
     </div>
