@@ -6,9 +6,9 @@ import Icon from "@/components/ui/icon";
 import { useState, useEffect } from "react";
 
 const Index = () => {
-  const [monthlyMinutes, setMonthlyMinutes] = useState(240);
-  const [recommendation, setRecommendation] = useState('');
-  const [navHidden, setNavHidden] = useState(false);
+  const [monthlyMinutes, setMonthlyMinutes] = useState<number>(240);
+  const [recommendation, setRecommendation] = useState<string>('');
+  const [navHidden, setNavHidden] = useState<boolean>(false);
 
   useEffect(() => {
     let lastScroll = 0;
